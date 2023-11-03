@@ -1,0 +1,11 @@
+{
+  "name": "version-beta-loser--beta-12-",
+  "version": "1.0.0",
+  "description": "Create a platform for citizens to report and address urban issues in their\r communities:",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Loser",
+  "license": "ISC"
+}
