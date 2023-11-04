@@ -1,0 +1,259 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    /* border: 1px solid red; */
+    font-family: 'Poppins', sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    background-color: #e5e6e6;
+}
+
+#navbarDropdownMenuLink {
+    padding-right: 18px;
+}
+
+nav.navigation {
+    background-color: white;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4rem;
+    padding: 0.25rem 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+div.nav-left {
+    display: flex;
+    flex-direction: row;
+    gap: 0.25rem;
+}
+
+div.nav-head-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+div.top {
+    font-size: 1rem;
+    color: #2196F3;
+    font-weight: 500;
+}
+
+div.bottom {
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+div.nav-logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 3.5rem;
+    width: 3.5rem;
+}
+
+img.nav-logo-img {
+    height: 3rem;
+    width: auto;
+}
+
+div.menu-logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.75rem;
+    width: 2.75rem;
+    align-self: center;
+    border-radius: 99px;
+}
+
+div.menu-logo-container:hover {
+    background-color: #e5e6e6;
+
+}
+
+img.menu-logo-img {
+    height: 1.5rem;
+    width: auto;
+}
+
+
+/* sidebar css */
+div.sidebar {
+    position: fixed;
+    top: 4rem;
+    left: 0;
+    width: 250px;
+    height: calc(100vh - 4rem);
+    background-color: #313534;
+    padding: 2rem 1.5rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+    transition: width 0.2s ease-in-out;
+    white-space: nowrap;
+}
+
+div.sidebar-navlink {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+div.sidebar-navlink:hover>span.navlink-text {
+    color: #f0f0f0;
+}
+
+div.sidebar-navlink:hover>div.navlink-logo-container {
+    background-color: #f0f0f0;
+}
+
+div.navlink-logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2rem;
+    width: 2rem;
+    align-self: center;
+    border-radius: 99px;
+}
+
+span.navlink-text {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #b6b6b6;
+    transition: visibility 0s, opacity 0.5s ease-out;
+    transition-delay: 0.15s;
+}
+
+.visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+.hidden {
+    visibility: hidden;
+    opacity: 0;
+}
+
+
+/* main section css */
+div.main {
+    background-color: white;
+    margin-top: 6rem;
+    margin-left: 310px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.26);
+    border-radius: 5px;
+    margin-right: 2rem;
+    margin-bottom: 6rem;
+}
+
+div.head {
+    background-color: #0aa89e;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: white;
+}
+
+div.about-text-one {
+    padding: 1rem;
+    font-size: 0.7rem;
+    color: rgb(31, 31, 31);
+    display: flex;
+    flex-direction: row;
+    line-height: 1.2rem;
+}
+
+div.about-text-one-left {
+    width: 62.5%;
+}
+
+div.about-text-one-right {
+    width: 37.5%;
+    padding-left: 2rem;
+}
+
+div.about-text-two {
+    margin-top: 1rem;
+    font-size: 0.7rem;
+    color: rgb(31, 31, 31);
+    line-height: 1.2rem;
+    padding: 1rem;
+}
+
+div.about-text-two-list {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 0.5rem;
+}
+
+div.steps {
+    width: 22.5%;
+}
+
+h3.step-head {
+    padding-bottom: 1rem;
+}
+
+h3.step-head>a {
+    font-size: 1.25rem;
+    color: #0aa89e;
+}
+
+div.about-text-three {
+    margin-top: 1rem;
+    font-size: 0.7rem;
+    color: rgb(31, 31, 31);
+    line-height: 1.2rem;
+    padding: 1rem;
+}
+
+div.about-text-four {
+    margin-top: 1rem;
+    font-size: 0.7rem;
+    color: rgb(31, 31, 31);
+    line-height: 1.2rem;
+    padding: 1rem;
+}
+
+div.about-text-three-list,
+div.about-text-four-list {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 0.5rem;
+}
+
+div.about-text-three-list>div.steps {
+    width: 47.5%;
+}
+
+div.about-text-four-list>div.steps {
+    width: 30%;
+}

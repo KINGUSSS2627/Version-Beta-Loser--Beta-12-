@@ -53,6 +53,10 @@ app.get("/", (req,res)=>{
     res.redirect("login");
 })
 
+// app.get("/home", (req,res)=>{
+//     res.render("home");
+// })
+
 app.get("/login", (req,res)=>{
     res.render("login");
 })
@@ -66,7 +70,7 @@ app.post("/login", (req, res) => {
     User.findOne({ email: email })
         .then(result => {
             if (result && result.password === password) {
-                res.render("user");
+                res.render("home");
             } else {
                 res.redirect("/login");
             }

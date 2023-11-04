@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/home.css">
+
+</head>
+
+<body>
+    <!-- navigation bar -->
+    <nav class="navigation">
+        <div class="nav-left">
+            <div class="nav-head-text">
+                <div class="top">City Complaint System</div>
+                <!-- <div class="bottom">Comprehensive Complaint Redressal System</div> -->
+            </div>
+            <div class="menu-logo-container">
+                <img src="./menu.svg" alt="" class="menu-logo-img">
+            </div>
+        </div>
+        <div class="nav-right">
+            <div class="notification-bell"></div>
+            <div class="user-box">
+                <div class="user-img"></div>
+                <!-- <div class="user-name">Admin</div> -->
+            </div>
+        </div>
+
+        <ul class="navbar-nav ms-auto d-flex flex-row">
+            <!-- Notification dropdown -->
+            <li class="nav-item dropdown">
+                <a class="nav-link me-3 me-lg-0 dropdown-toggle hidden-arrow " id="navbarDropdownMenuLink"
+                    href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fas fa-bell"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end " aria-labelledby="navbarDropdownMenuLink">
+                    <li><a class="dropdown-item" href="#">Some news</a></li>
+                    <li><a class="dropdown-item" href="#">Another news</a></li>
+                    <li>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </li>
+                </ul>
+            </li>
+
+
+
+            <!-- Avatar -->
+            <li class="nav-item dropdown">
+                <a class="nav-link me-3 me-lg-0 dropdown-toggle hidden-arrow" id="navbarDropdownMenuLink"
+                    href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fa-solid fa-user"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                    <li><a class="dropdown-item" href="#">My profile</a></li>
+                    <li><a class="dropdown-item" href="#">Settings</a></li>
+                    <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <!-- sidebar -->
+    <div id="mySidebar" class="sidebar" onmouseover="openSidebar()" onmouseout="closeSidebar()">
+        <div class="sidebar-navlink">
+            <div class="navlink-logo-container">
+                <i class="fa-solid fa-house navlink-logo" style="color: #999999;"></i>
+            </div>
+            <span class="navlink-text">Home</span>
+        </div>
+        <div class="sidebar-navlink">
+            <div class="navlink-logo-container">
+                <i class="fa-solid fa-file-lines navlink-logo" style="color: #999999;"></i>
+            </div>
+            <a href="/complaints"><span class="navlink-text">Complaint Registration</span></a>
+        </div>
+        <div class="sidebar-navlink">
+            <div class="navlink-logo-container">
+                <i class="fa-solid fa-expand navlink-logo" style="color: #999999;"></i>
+            </div>
+            <span class="navlink-text">Re-open complaint</span>
+        </div>
+        <div class="sidebar-navlink">
+            <div class="navlink-logo-container">
+                <i class="fa-solid fa-ticket navlink-logo" style="color: #999999;"></i>
+            </div>
+            <a href="/prevComplaints"><span class="navlink-text">Complaint Status</span></a>
+        </div>
+        <div class="sidebar-navlink">
+            <div class="navlink-logo-container">
+                <i class="fa-solid fa-user navlink-logo" style="color: #999999;"></i>
+            </div>
+            <span class="navlink-text">Citizen Feedback</span>
+        </div>
+        <div class="sidebar-navlink">
+            <div class="navlink-logo-container">
+                <i class="fa-solid fa-square-plus navlink-logo" style="color: #999999;"></i>
+            </div>
+            <span class="navlink-text">Support</span>
+        </div>
+    </div>
+
+    <!-- main content -->
+    <div class="main">
+        <div class="head">About CCS</div>
+        <div class="about-text-one">
+            <div class="about-text-one-left">
+                <ul>
+                <li>
+                The CCS is a web based enterprise solution that allows City's Muncipal/Police/Electricity Departments to enhance citizen
+                satisfaction through comprehensive service management and efficient service delivery.
+                </li>
+                <li>
+                CCS automates entire complaint process, right from registration to closure. It also enforces service
+                level policies to ensure the complaint gets attended within desired timeline or gets escalated to higher
+                authorities for their attention and intervention.
+                </li>
+                <li>
+                Citizens can lodge complaints through a call center, website or by visiting a ward office. At call
+                center or ward office, an operator registers a complaint within the system with all necessary details. A
+                complainant can lodge single or multiple complaints during a single call. In all cases, the complainant
+                is given a complaint acknowledgement number.
+                </li>
+                <li>
+                Once a complaint is registered within the system, it is assigned to a concerned area officer dealing
+                with the reported problem. The system automatically sends an SMS to officer alerting him on the
+                complaint for taking required actions. The officer calls the complainant, if necessary, to seek specific
+                details.
+                </li>
+                <li>
+                The officer is expected to resolve the complaint within a specified period of time. Once a complaint is
+                resolved, the officer marks the complaint as closed in the system. The citizen receives an SMS
+                confirming the resolution of his/her complaint. If the citizen is not satisfied he/she can request to
+                re-open the complaint, which is then escalated to higher authority.
+                </li>
+                <li>
+                If the complaint is not resolved and closed within the specified period, the same gets escalated to
+                higher authorities. On repeated failures to resolve the problem, it gets escalated to Dy. Commissioner.
+                </li>
+            </div>
+            <div class="about-text-one-right">
+                <h2 style="text-align: center; color: #0aa89e; font-size: 1.15rem; margin-bottom: 0.1rem;">Benefits Of
+                    CCS</h2>
+                <ul>
+                    <li>
+                        Citizens need not go to Ward offices to register complaint
+                    </li>
+                    <li>
+                        System available round the clock - Call Centre, Website, SMS, Email, IVR, Ward Offices, Mobile
+                        Application
+                    </li>
+                    <li>
+                        Improved communication by way of SMS / Email alerts
+                    </li>
+                    <li>
+                        CCS provides data of frequent complaints and average turnaround time for each kind of
+                        problem.It helps Muncipal/Police/Electricity Departments to focus the areas to improve the services by
+                        enhancing the manpower and infrastructure. This also helps Muncipal/Police/Electricity Departments to
+                        prioritize on their services.
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="about-text-two">
+            <h3
+                style="text-align: center; font-size: 1.35rem; margin-bottom: 1rem; font-weight: 400; text-decoration: underline; text-decoration-color: blue;">
+                <a href="#">How to register a complaint</a>
+            </h3>
+            <div>A citizen can register complaint(s) at call center, ward office or through website.</div>
+            <div class="about-text-two-list">
+                <div class="steps">
+                    <h3 class="step-head">
+                        <a href="#">To register complaint online through website</a>
+                    </h3>
+                    <p class="step-text">
+                        Click on the “Online” option of Complaint Registration and enter detail of your complaint.
+                    </p>
+                </div>
+                <div class="steps">
+                    <h3 class="step-head">
+                        <a href="">To register complaint at call center:</a>
+                    </h3>
+                    <p class="step-text">
+                        Contact our dedicated call center by dialing 155303 from landline or mobile between 24*7 to
+                        raise complaint. Municipality/Corporation assures to provide a seamless support.
+                    </p>
+                </div>
+                <div class="steps">
+                    <h3 class="step-head">
+                        <a href="">To register complaint through E-Mail:</a>
+                    </h3>
+                    <p class="step-text">
+                        Send your Email with “ Name, Mobile Number, Problem to resolve and Location where the problem is
+                        “ at “ccs@mycity.gov.in“ The call operator will check the email and register the
+                        complaint in the system. Operator may contact the citizen in case, information provided is
+                        insufficient or any clarification required.
+                    </p>
+                </div>
+                <div class="steps">
+                    <h3 class="step-head">
+                        <a href="">To register complaint through SMS:</a>
+                    </h3>
+                    <p class="step-text">
+                        Send text “CCS NEW” to 56767. A Call Centre operator will call back to take necessary details
+                        to register the complaint.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="about-text-three">
+            <h3
+                style="text-align: left; font-size: 1.35rem; margin-bottom: 1rem; font-weight: 400; text-decoration: underline; text-decoration-color: blue;">
+                <a href="#">How to know the status of a complaint</a>
+            </h3>
+            <div>
+                Complainant has a right to know the current status of his/her complaint. The same can be known through
+                any of the following modes.
+            </div>
+
+            <div class="about-text-three-list">
+                <div class="steps">
+                    <h3 class="step-head">
+                        <a href="#">Complaint Status Through Phone:</a>
+                    </h3>
+                    <p class="step-text">
+                        Call the call centre at 155303 between 24*7 and provide complaint number.
+                    </p>
+                </div>
+                <div class="steps">
+                    <h3 class="step-head">
+                        <a href="">Complaint Status Through SMS:</a>
+                    </h3>
+                    <p class="step-text">
+                        Send text “CCS STATUS [Complaint/Token No]” to 56767.
+                        Example : CCS STATUS SWM-0613123456 to 56767
+                    </p>
+                </div>
+
+            </div>
+        </div>
+        <div class="about-text-four">
+            <h3
+                style="text-align: left; font-size: 1.35rem; margin-bottom: 1rem; font-weight: 400; text-decoration: underline; text-decoration-color: blue;">
+                <a href="#">Re-opening of complaint</a>
+            </h3>
+            <div>Not satisfied with our previous response?
+
+                Citizen can reopen a complaint within 3 days of closure, if that was not addressed properly.
+            </div>
+
+            <div class="about-text-four-list">
+                <div class="steps">
+                    <h3 class="step-head">
+                        <a href="#">Re-Open complaint through E-Mail:</a>
+                    </h3>
+                    <p class="step-text">
+                        Send your Email with “Mobile Number, Token Number and Reason for reopen “ at
+                        “ccs@mycity.gov.in“ The call operator will check the email and reopen the complaint in
+                        the system. Operator may contact the citizen in case,information provided is insufficient or any
+                        clarification required.
+                    </p>
+                </div>
+                <div class="steps">
+                    <h3 class="step-head">
+                        <a href="">Re-Open Complaint Through Phone:</a>
+                    </h3>
+                    <p class="step-text">
+                        Call the call centre at 155303 between 24*7 and provide complaint number.
+                    </p>
+                </div>
+                <div class="steps">
+                    <h3 class="step-head">
+                        <a href="">Re-Open Through SMS:</a>
+                    </h3>
+                    <p class="step-text">
+                        Send text “CCS REOPEN [Complaint/Token No]” to 56767.
+                        Example : CCS REOPEN SWM-0613123456 to 56767
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script src="script/home.js"></script>
+
+</html>
