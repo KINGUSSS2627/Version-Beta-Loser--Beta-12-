@@ -11,7 +11,9 @@ dotenv.config();
 
 const Admin = require("./models/admin")
 const User = require("./models/user");
-const Complaints = require("./models/complaints");
+const MunicipleComplaints = require("./models/MunicipalComplaints");
+const PowerComplaints = require("./models/PowerComplaints");
+const PoliceComplaints = require("./models/PoliceComplaints");
 
 const app = express();
 app.set('view engine', 'ejs');
@@ -55,6 +57,10 @@ app.get("/login", (req,res)=>{
     res.render("login");
 })
 
+app.get("/logout", (req,res)=>{
+    res.redirect("login");
+})
+
 app.post("/login", (req, res) => {
     const { email, password } = req.body;
     User.findOne({ email: email })
@@ -94,10 +100,6 @@ app.post("/signup", (req,res)=>{
         });
 })
 
-app.get("/user", (req,res)=>{
-    res.render("user");
-})
-
 app.get("/complaints", (req,res)=>{
     res.render("complaints");
 })
@@ -110,8 +112,56 @@ app.post("/complaints", (req,res)=>{
     const Otp = otp.generate(4, { upperCaseAlphabets: false, specialChars: false, lowerCaseAlphabets: false});
 })
 
+app.get("/detailUser",(req,res)=>{
+    res.render("detailUser");
+})
+app.get("/detailMunicipal",(req,res)=>{
+    res.render("detailMunicipal");
+})
+app.get("/detailPolice",(req,res)=>{
+    res.render("detailPolice");
+})
+app.get("/detailPower",(req,res)=>{
+    res.render("detailPower");
+})
+
+
 app.get("/prevComplaints", (req,res)=>{
     res.render("prevComplaints");
+})
+
+app.get("/acknowledgementPower", (req,res)=>{
+    res.render("acknowledgementPower");
+})
+
+app.get("/acknowledgementPolice",(req,res)=>{
+    res.render("acknowledgementPolice");
+})
+
+app.get("/acknowledgementMunicipal",(req,res)=>{
+    res.render("acknowledgementMunicipal");
+})
+app.get("/adminMunicipalNew",(req,res)=>{
+    res.render("adminMunicipalNew");
+})
+app.get("/adminMunicipalOld",(req,res)=>{
+    res.render("adminMunicipalOld");
+})
+app.get("/adminPoliceNew",(req,res)=>{
+    res.render("adminPoliceNew");
+})
+app.get("/adminPoliceOld",(req,res)=>{
+    res.render("adminPoliceOld");
+})
+app.get("/adminPowerOld",(req,res)=>{
+    res.render("adminPowerOld");
+})
+app.get("/adminPowerOld",(req,res)=>{
+    res.render("adminPowerOld");
+})
+
+app.get("/success", (req,res)=>{
+    res.render("success");
 })
 
 app.listen(3000, ()=>{console.log("Server is live at port 3000")});

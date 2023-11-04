@@ -33,5 +33,5 @@ const complaints = {
     }
 }
 
-const Complaints = new mongoose.model("complaints", complaints);
-module.exports = Complaints;
+const PowerComplaints = new mongoose.model("Powercomplaints", complaints);
+module.exports = PowerComplaints;

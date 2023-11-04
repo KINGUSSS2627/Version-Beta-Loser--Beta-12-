@@ -17,11 +17,45 @@ body {
 }
 
 .wrapper {
+    margin-top: 50px;
+    margin-bottom: 50px;
     position: relative;
-    max-width: 900px;
+    max-width: 700px;
     width: 100%;
     border-radius: 6px;
+    background-color: white;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
+
+.wrapper form textarea {
+    width: 600px;
+}
+
+.loc {
+    display: flex;
+}
+
+.location-find {
+    border: 2px solid rgb(204, 204, 204);
+    margin-right: 15px;
+}
+
+.loc .location-find p {
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+/* Button */
+.wrapper form button {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
 
 .wrapper h2 {
     position: relative;
@@ -158,6 +192,25 @@ input[type=file]::file-selector-button:hover {
     cursor: pointer;
     background-color: #87a1d3;
     border-color: #87a1d3;
+}
+
+.wrapper form .location-find {
+    height: 41px;
+    transform: translatex(0px) translatey(12px);
+    position: relative;
+    top: -3px;
+    left: 0px;
+}
+
+.btn-color {
+    padding: 7px;
+    border-radius: 5px;
+    background-color: #8fb0dd;
+    border-color: #8fb0dd;
+    margin: 10px;
+    font-weight: 700;
+    font-size: 16px;
+    transition: 0.8s ease;
 }
 
 .top-left-button {

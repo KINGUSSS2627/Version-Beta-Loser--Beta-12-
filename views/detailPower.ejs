@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/detail.css">
+</head>
+
+<body>
+    <a href="/home"><button class="top-button left">Home</button></a>
+    <a href="/logout"><button class="top-button right">Logout</button></a>
+
+    <div class="heading">
+        <h1> Complaint Details</h1>
+    </div>
+    <div class="container">
+        <div class="info">
+            <p><strong>Name:</strong> John Doe</p>
+            <p><strong>Email:</strong> johndoe@example.com</p>
+            <p><strong>Phone Number:</strong> +1 (555) 123-4567</p>
+            <p><strong>Address:</strong> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <p><strong>Compalint Id:</strong> 123-4567</p>
+            <p><strong>Description:</strong> Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit, harum quod delectus debitis temporibus distinctio incidunt mollitia quo dignissimos, eius molestias pariatur iusto veritatis voluptas ratione asperiores? Soluta, tempora omnis.</p>
+            <p><strong>Added Images:</strong></p>
+            <img src="pikb29.jpg" alt="">
+            <img src="pikb29.jpg" alt="">
+            <br>
+            <label for="agree">
+                <input type="checkbox" id="agree" name="agreement" required>
+            Complaint Acknowledged            </label>
+            <br>
+            <form action="/acknowledgementPower" method="post">
+                <button class="submit" type="submit">Submit</button>
+            </form>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

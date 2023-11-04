@@ -9,8 +9,8 @@
 </head>
 
 <body>
-    <button class="top-left-button">Back</button>
-    <button class="top-right-button">Logout</button>
+    <a href="/home"><button class="top-left-button">Home</button></a>
+    <a href="/logout"><button class="top-right-button">Logout</button></a>
     <div class="wrapper">
         <h2>Register Complaint</h2>
 
@@ -45,12 +45,19 @@
                     <input type="file" id="file" name="file" accept="image/*" required>
                 </div>
             <div class="loc">
-                <button>Get Current Location</button>
+                <div class="location-find">
+                    <p class="result">Current Location  </p>
+
+                </div>
+                <button class="btn-color">Get Current Location</button>
             </div>
             <div class="input-box button">
                 <input type="Submit" value="Submit">
             </div>
         </form>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="script/map.js"></script>
     </div>
 </body>
 </html>
