@@ -1,94 +1,56 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" dir="ltr">
+
 <head>
-  <title>Complaint System</title>
-  <style>
-
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #87CEEB;
-      margin: 0;
-      padding: 0;
-      position: relative;
-    }
-
-    h1 {
-      text-align: center;
-      font-family: "Times New Roman", Times, serif;
-      font-weight: bold;
-    }
-
-    label {
-      display: block;
-      margin-top: 10px;
-    }
-
-    input, textarea {
-      width: calc(100% - 6rem);
-      padding: 10px;
-      margin-top: 5px;
-      margin-bottom: 15px;
-      border: 1px solid #ccc;
-      border-radius: 3px;
-    }
-
-    textarea {
-      height: 200px;
-    }
-
-    button {
-      background-color: #3498db;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      padding: 12px 30px;
-      cursor: pointer;
-    }
-
-    .top-left-button {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-    }
-
-    .top-right-button {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-    }
-
-    #upload-button {
-      width: calc(100% - 6rem);
-      padding: 10px;
-      margin-top: 15px;
-      background-color: #3498db;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Registration or Sign Up form in HTML CSS | CodingLab </title>
+    <link rel="stylesheet" href="css/complaint.css">
 </head>
+
 <body>
-  <a href="#" class="top-left-button">Home</a>
-  <a href="#" class="top-right-button">Sign Out</a>
-  <h1>Register a Complaint</h1>
-  <form action="/complaints" method="post">
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" required>
+    <button class="top-left-button">Back</button>
+    <button class="top-right-button">Logout</button>
+    <div class="wrapper">
+        <h2>Register Complaint</h2>
 
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required>
 
-    <label for="phone">Phone No.:</label>
-    <input type="tel" id="phone" name="mobile" required>
+        <form action="/complaints" method="post">
+            <div class="input-box">
+                <input type="text" placeholder="Enter your name" required name="name">
+            </div>
+            <div class="input-box">
+                <input type="text" placeholder="Enter your email" required name='email'>
+            </div>
+            <div class="input-box">
+                <input type="text" placeholder="phone number" required name="phone">
+            </div>
+            <div class="input-box">
+                <input type="text" placeholder="address" required name=address>
+            </div>
+            <div class="input-box_radio">
+               <p>Choose the Department for your complaint</p>
 
-    <label for="description">Description:</label>
-    <textarea id="description" name="description" required></textarea>
-
-    <input type="file" id="upload-button" name="file" accept="image/*">
-
-    <button type="submit">Submit Complaint</button>
-  </form>
+                <input type="radio" id="option1" name="radio" value="Police">
+                <label for="option1">Police</label>
+                <input type="radio" id="option2" name="radio" value="Municipality">
+                <label for="option2">Municipality</label>
+                <input type="radio" id="option3" name="radio" value="Electricity">
+                <label for="option3">Electricity</label>
+            </div>
+                <p class="description">Description</p>
+                <textarea name="message" rows="7" cols="132">The cat was playing in the garden.</textarea>
+                <div class="input-box_file">
+                    <label for="file">Upload Image:</label>
+                    <input type="file" id="file" name="file" accept="image/*" required>
+                </div>
+            <div class="loc">
+                <button>Get Current Location</button>
+            </div>
+            <div class="input-box button">
+                <input type="Submit" value="Submit">
+            </div>
+        </form>
+    </div>
 </body>
 </html>

@@ -1,1 +1,123 @@
-prev Complaints
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>2 Cards in a Row Grid</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap');
+        @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+        /* Style for the container */
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #28618c;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 20px;
+            justify-items: center;
+            align-items: center;
+            padding: 20px;
+            margin-left: 22%;
+            margin-right: 22%;
+
+        }
+
+        /* Style for the cards */
+        .card {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            width: 300px;
+            background-color: rgba(255, 255, 255, 0.85);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin: 20px;
+        }
+
+        /* Style for the cross icon in a red circle */
+        .cross-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            color: white;
+            background-color: red;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            margin: 0 auto 10px;
+        }
+
+        /* Style for the heading */
+        .heading {
+            font-size: 24px;
+            margin-bottom: 20px;
+            grid-column: span 2;
+            font-size: 34px;
+            margin-top: 4rem;
+        }
+
+        /* Style for the top buttons */
+        .top-button {
+            position: absolute;
+            top: 10px;
+            font-size: 16px;
+            font-weight: 700;
+            background-color: #8fb0dd;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+            transition: 0.8s ease;
+        }
+
+        .top-button.left {
+            left: 10px;
+        }
+
+        .top-button.right {
+            right: 10px;
+        }
+
+        .top-button:hover {
+            background-color: #87a1d3;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="top-button left">Back</button>
+    <button class="top-button right">Logout</button>
+    <div class="container">
+        <h1 class="heading">Review Status For Old Complaints</h1>
+        <div class="card">
+            <h2>Card 1</h2>
+            <p>Some content for Card 1.</p>
+            <div class="cross-icon">✖</div>
+        </div>
+        <div class="card">
+            <h2>Card 2</h2>
+            <p>Some content for Card 2.</p>
+            <div class="cross-icon">✖</div>
+        </div>
+        <div class="card">
+            <h2>Card 3</h2>
+            <p>Some content for Card 3.</p>
+            <div class="cross-icon">✖</div>
+        </div>
+        <div class="card">
+            <h2>Card 4</h2>
+            <p>Some content for Card 4.</p>
+            <div class="cross-icon">✖</div>
+        </div>
+        <!-- Add more cards here if needed -->
+    </div>
+</body>
+
+</html>

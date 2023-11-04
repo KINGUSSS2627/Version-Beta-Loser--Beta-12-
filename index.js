@@ -48,22 +48,54 @@ mongoose.connect("mongodb://127.0.0.1:27017/Complaints" ,{useNewUrlParser :true,
 
 
 app.get("/", (req,res)=>{
-    res.send("Hi");
+    res.redirect("login");
 })
-
-
-
 
 app.get("/login", (req,res)=>{
     res.render("login");
 })
 
+app.post("/login", (req, res) => {
+    const { email, password } = req.body;
+    User.findOne({ email: email })
+        .then(result => {
+            if (result && result.password === password) {
+                res.render("user");
+            } else {
+                res.redirect("/login");
+            }
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).send("Internal Server Error");
+        });
+});
+
 app.get("/signup", (req,res)=>{
     res.render("signup");
 })
 
-app.get("/customer", (req,res)=>{
-    res.render("customer");
+app.post("/signup", (req,res)=>{
+    const newUser = new User({
+        name : req.body.name,
+        email : req.body.email,
+        password : req.body.password,
+        mobile : req.body.phone
+    });
+
+    newUser.save()
+        .then(() => {
+            console.log("The data of newUser has been added to the database");
+            res.render("user");
+        })
+        .catch(err => {
+            console.error(err);
+            res.status(500).send("Internal Server Error");
+        });
+})
+
+app.get("/user", (req,res)=>{
+    res.render("user");
 })
 
 app.get("/complaints", (req,res)=>{
@@ -72,7 +104,10 @@ app.get("/complaints", (req,res)=>{
 
 app.post("/complaints", (req,res)=>{
     const {name, email, mobile, description} = req.body;
-    const Otp = otp.generate(6, { upperCaseAlphabets: false, specialChars: false, lowerCaseAlphabets: false});
+    const departmet = req.body.radio;
+    console.log(name);
+    console.log(departmet);
+    const Otp = otp.generate(4, { upperCaseAlphabets: false, specialChars: false, lowerCaseAlphabets: false});
 })
 
 app.get("/prevComplaints", (req,res)=>{

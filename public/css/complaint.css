@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #28618c;
+}
+
+.wrapper {
+    position: relative;
+    max-width: 900px;
+    width: 100%;
+    border-radius: 6px;
+}
+
+.wrapper h2 {
+    position: relative;
+    font-size: 24px;
+    font-weight: 800;
+    color: #333;
+}
+
+.wrapper form {
+    margin-top: 30px;
+}
+
+.wrapper form .input-box {
+    height: 52px;
+    margin: 18px 0;
+}
+
+form .input-box input {
+    height: 100%;
+    width: 100%;
+    outline: none;
+    padding: 0 15px;
+    font-size: 17px;
+    font-weight: 400;
+    color: #333;
+    border: 1.5px solid #C7BEBE;
+    border-bottom-width: 2.5px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.input-box input:focus,
+.input-box input:valid {
+    border-color: #4070f4;
+}
+
+form .policy {
+    display: flex;
+    align-items: center;
+}
+
+form h3 {
+    color: #707070;
+    font-size: 14px;
+    font-weight: 500;
+    margin-left: 10px;
+}
+
+.input-box.button input {
+    color: #fff;
+    letter-spacing: 1px;
+    border: none;
+    background: #4070f4;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.input-box.button input:hover {
+    background: #0e4bf1;
+}
+
+form .text h3 {
+    color: #333;
+    width: 100%;
+    text-align: center;
+}
+
+form .text h3 a {
+    color: #4070f4;
+    text-decoration: none;
+}
+
+form .text h3 a:hover {
+    text-decoration: underline;
+}
+
+.input-box_radio input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    /* Add spacing between radio button and label */
+}
+
+.input-box_radio label {
+    font-size: 16px;
+}
+
+.input-box_radio p {
+    font-weight: bold;
+}
+
+
+.description {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+textarea {
+    border: 2px solid #ccc;
+    padding: 10px 16px;
+    border-radius: 4px;
+    font-size: 13px;
+    resize: none;
+    transition: all 0.2s ease;
+}
+
+.input-box_file {
+    margin: 5px;
+}
+
+textarea:focus {
+    outline: none;
+    border: 1px solid #4070f4;
+    border-bottom-width: 2.5px;
+    border-radius: 6px;
+
+}
+
+body {
+    background-color: #28618c;
+}
+
+input[type=file]::file-selector-button {
+    padding: 7px;
+    border-radius: 5px;
+    background-color: #8fb0dd;
+    border-color: #8fb0dd;
+    margin: 10px;
+    font-weight: 700;
+    font-size: 16px;
+    transition: 0.8s ease;
+}
+
+input[type=file]::file-selector-button:hover {
+    cursor: pointer;
+    background-color: #87a1d3;
+    border-color: #87a1d3;
+}
+
+.top-left-button {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 12px 20px;
+    cursor: pointer;
+}
+
+.top-left-button:hover {
+    background-color: #4070f4;
+}
+
+.top-right-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 12px 20px;
+    cursor: pointer;
+}
+
+.top-right-button:hover {
+    background-color: #c0392b;
+}

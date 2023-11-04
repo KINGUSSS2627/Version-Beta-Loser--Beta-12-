@@ -22,6 +22,14 @@ const complaints = {
     Description: {
         type: String,
         required: true
+    },
+    Department: {
+        type: String,
+        required: true
+    },
+    Location: {
+        type: String,
+        require: true
     }
 }
 
