@@ -2,13 +2,27 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
 
 body {
-    background-image: url("pikb29.jpg");
+    background-image: url("IMG-20231104-WA0022.jpg");
     background-size: cover;
+    margin: 0;
+    padding: 0;
+    background-position: center;
 }
 
 * {
 
     font-family: 'Poppins', sans-serif;
+}
+
+.info {
+    padding: 35px;
+    max-width: 100%;
+    margin: 2em;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.75);
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 .heading {
@@ -43,8 +57,9 @@ body {
     top: 10px;
     font-size: 16px;
     font-weight: 700;
-    background-color: #8fb0dd;
+    background-color: #144B53;
     border: none;
+    color: #fff;
     border-radius: 5px;
     padding: 10px;
     cursor: pointer;
@@ -66,13 +81,13 @@ img {
 }
 
 .top-button:hover {
-    background-color: #87a1d3;
+    background-color: #208291;
 }
 
 .submit {
     font-size: 16px;
     font-weight: 700;
-    background-color: #8fb0dd;
+    background-color: #144B53;
     border: none;
     border-radius: 5px;
     padding: 10px;
@@ -82,7 +97,7 @@ img {
 }
 
 .submit:hover {
-    background-color: #87a1d3;
+    background-color: #208291;
 }
 
 /* Style for the label associated with the checkbox */

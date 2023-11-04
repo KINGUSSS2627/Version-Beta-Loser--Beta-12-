@@ -13,7 +13,27 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #28618c;
+    /* background: #28618c; */
+    background-image: url("img.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: none;
+
+}
+
+.wrapper form .btn-color {
+    background-color: #144b53;
+    color: #faf9f9;
+}
+
+.wrapper form .btn-color:hover {
+    background-color: #208291;
+    color: #faf9f9;
+}
+
+/* File */
+#file {
+    transform: translatex(0px) translatey(0px);
 }
 
 .wrapper {
@@ -23,7 +43,7 @@ body {
     max-width: 700px;
     width: 100%;
     border-radius: 6px;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.75);
     padding-left: 15px;
     padding-right: 15px;
     padding-top: 15px;
@@ -39,7 +59,7 @@ body {
 }
 
 .location-find {
-    border: 2px solid rgb(204, 204, 204);
+    border: 2px solid black;
     margin-right: 15px;
 }
 
@@ -180,8 +200,10 @@ body {
 input[type=file]::file-selector-button {
     padding: 7px;
     border-radius: 5px;
-    background-color: #8fb0dd;
-    border-color: #8fb0dd;
+    /* background-color: #8fb0dd;
+    border-color: #8fb0dd; */
+    background-color: #144b53;
+    color: #faf9f9;
     margin: 10px;
     font-weight: 700;
     font-size: 16px;
@@ -190,8 +212,9 @@ input[type=file]::file-selector-button {
 
 input[type=file]::file-selector-button:hover {
     cursor: pointer;
-    background-color: #87a1d3;
-    border-color: #87a1d3;
+    /* background-color: #87a1d3;
+    border-color: #87a1d3; */
+    background-color: #208291;
 }
 
 .wrapper form .location-find {

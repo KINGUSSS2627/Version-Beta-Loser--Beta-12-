@@ -20,7 +20,7 @@
 
 body {
 
-    background-image: url("pikb29.jpg") !important;
+    background-image: url("IMG-20231104-WA0022.jpg") !important;
     background-size: cover;
 }
 
@@ -28,7 +28,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 30px;
+    margin-top: 25px;
     font-size: 1.5rem;
 }
 
@@ -112,12 +112,12 @@ form h3 {
     background: transparent;
     letter-spacing: 1px;
     border: none;
-    background: #4070f4;
+    background: #144B53;
     cursor: pointer;
 }
 
 .input-box.button input:hover {
-    background: #0e4bf1;
+    background: #208291;
 }
 
 form .text h3 {

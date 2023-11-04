@@ -10,7 +10,7 @@
 
 body {
 
-    background-image: url("pikb29.jpg") !important;
+    background-image: url("IMG-20231104-WA0022.jpg") !important;
     background-size: cover;
 
 }
@@ -19,7 +19,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 30px;
+    margin-top: 25px;
     font-size: 1.5rem;
 }
 
@@ -181,19 +181,18 @@ form .pass-txt {
 }
 
 form input[type="submit"] {
-    height: 50px;
     margin-top: 30px;
     color: #fff;
-    padding: 0;
+    padding: 10px;
     border: none;
-    background: #5372F0;
+    background: #144B53;
     cursor: pointer;
     border-bottom: 2px solid rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
 }
 
 form input[type="submit"]:hover {
-    background: #2c52ed;
+    background: #208291;
 }
 
 .sign-txt {
