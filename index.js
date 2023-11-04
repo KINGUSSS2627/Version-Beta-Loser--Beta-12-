@@ -53,9 +53,9 @@ app.get("/", (req,res)=>{
     res.redirect("login");
 })
 
-// app.get("/home", (req,res)=>{
-//     res.render("home");
-// })
+app.get("/home", (req,res)=>{
+    res.render("home");
+})
 
 app.get("/login", (req,res)=>{
     res.render("login");
@@ -114,6 +114,7 @@ app.post("/complaints", (req,res)=>{
     console.log(name);
     console.log(departmet);
     const Otp = otp.generate(4, { upperCaseAlphabets: false, specialChars: false, lowerCaseAlphabets: false});
+    res.render("success");
 })
 
 app.get("/detailUser",(req,res)=>{
