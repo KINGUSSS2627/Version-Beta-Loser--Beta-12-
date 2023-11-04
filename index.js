@@ -4,7 +4,8 @@ const ejs = require("ejs");
 const dotenv = require('dotenv');
 const bodyParser = require("body-parser");
 const otp = require('otp-generator');
-const sms = require('fast-two-sms');
+const fast2sms = require('fast-two-sms')
+const axios = require('axios');
 
 dotenv.config();
 
@@ -25,23 +26,28 @@ mongoose.connect("mongodb://127.0.0.1:27017/Complaints" ,{useNewUrlParser :true,
 //     useUnifiedTopology: true
 //   }
 // );
-
 // Send otp
-var options = {
-    authorization: process.env.OTP_API,
-    message: 'The verification OTP for the complaints is',
-    numbers: ['7009853177']
-}
+// var smsData = {
+//     authorization: process.env.OTP_API,
+//     message: 'The verification OTP for the complaints is',
+//     numbers: '7009853177'
+// }
+// axios
+//     .post('https://www.fast2sms.com/dev/bulkV2',smsData, {
+//         headers:{
+//             authorization: process.env.OTP_API
+//         },
+//     })
+//     .then((response)=>{
+//         console.log("Sms Sent", response.data);
+//     })
+//     .catch((error) => {
+//         console.log(error.response.data);
+//     })
 
-async function smsSend(options){
-    const response = await sms.sendMessage(options)
-    console.log(response)
-}
 
 
 app.get("/", (req,res)=>{
-
-    smsSend(options);
     res.send("Hi");
 })
 
