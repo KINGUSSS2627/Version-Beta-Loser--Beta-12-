@@ -200,6 +200,10 @@ app.post("/complaints", (req,res)=>{
     res.render("success");
 })
 
+app.get("/feedback", (req,res)=>{
+    res.render("feedback");
+})
+
 app.get("/detailUser",(req,res)=>{
     res.render("detailUser");
 })
