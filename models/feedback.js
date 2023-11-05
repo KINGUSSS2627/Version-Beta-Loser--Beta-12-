@@ -12,12 +12,8 @@ const complaints = {
     Department: {
         type: String,
         required: true
-    },
-    Location: {
-        type: String,
-        require: true
     }
 }
 
-const MunicipleComplaints = new mongoose.model("Municipalcomplaints", complaints);
-module.exports = MunicipleComplaints;
+const feedback = new mongoose.model("feedback", complaints);
+module.exports = feedback;

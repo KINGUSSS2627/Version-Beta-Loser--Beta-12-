@@ -23,7 +23,7 @@
                 <input type="text" placeholder="Enter your email" required name='email'>
             </div>
             <div class="input-box">
-                <input type="text" placeholder="phone number" required name="phone">
+                <input type="text" placeholder="phone number" required name="mobile">
             </div>
             <div class="input-box">
                 <input type="text" placeholder="address" required name=address>
@@ -39,16 +39,18 @@
                 <label for="option3">Electricity</label>
             </div>
                 <p class="description">Description</p>
-                <textarea name="message" rows="7" cols="132">The cat was playing in the garden.</textarea>
+                <textarea rows="7" cols="132" name="description">The cat was playing in the garden.</textarea>
                 <div class="input-box_file">
                     <label for="file">Upload Image:</label>
-                    <input type="file" id="file" name="file" accept="image/*" required>
+                    <!-- <input type="file" id="file" name="file" accept="image/*"> -->
+                    <a href="/upload"><button type="button" class="btn-color">Upload here</button></a>
                 </div>
             <div class="loc">
                 <div class="location-find">
-                    <p class="result">Current Location  </p>
+                    <p class="result" id="map">Current Location  </p>
 
                 </div>
+                <input type="text" placeholder="location" required name=location>
                 <button class="btn-color">Get Current Location</button>
             </div>
             <div class="input-box button">

@@ -19,15 +19,15 @@ const complaints = {
         required :true,
         default: new Date()
     },
-    Description: {
+    description: {
         type: String,
         required: true
     },
-    Department: {
+    department: {
         type: String,
         required: true
     },
-    Location: {
+    location: {
         type: String,
         require: true
     }

@@ -6,14 +6,18 @@ const bodyParser = require("body-parser");
 const otp = require('otp-generator');
 const fast2sms = require('fast-two-sms');
 const axios = require('axios');
-const multer = require("./multer");
-const cloudinary = require("./cloudinary");
+const multer = require("multer");
+const cloudinary = require("cloudinary");
 const fs = require('fs');
-const upload = require("./multer").upload;
+const upload = multer();
+const { google } = require("googleapis");
+const stream = require("stream");
+const path = require("path");
 
 dotenv.config();
 
 const User = require("./models/user");
+const feedback = require("./models/feedback");
 const MunicipleComplaints = require("./models/MunicipalComplaints");
 const PowerComplaints = require("./models/PowerComplaints");
 const PoliceComplaints = require("./models/PoliceComplaints");
@@ -22,37 +26,39 @@ const app = express();
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-app.use('/upload-images', upload.array('image', async(req,res) => {
-    const uploader = async(path)=>await cloudinary.upload(path, 'Images');
+// app.use('/upload-images', upload.array('image', async(req,res) => {
+//     const uploader = async(path)=>await cloudinary.upload(path, 'Images');
 
-    if(req.methode === 'POST')
-    {
-        const urls =[];
-        const files =req.files;
+//     if(req.methode === 'POST')
+//     {
+//         const urls =[];
+//         const files =req.files;
 
-        for(const file of files)
-        {
-            const {path} = file
+//         for(const file of files)
+//         {
+//             const {path} = file
 
-            const newPath = await uploader(path)
+//             const newPath = await uploader(path)
 
-            urls.push(newPath)
+//             urls.push(newPath)
 
-            fs.unlinkSync(path)
-        }
+//             fs.unlinkSync(path)
+//         }
 
-        res.status(200).json({
-            message:"Image Uploaded Successfully",
-            data: urls
-        })
-    }
-    else{
-            res.status(405).json({
-                err:"Image not Uploaded"
-            })
-        }
-}))
+//         res.status(200).json({
+//             message:"Image Uploaded Successfully",
+//             data: urls
+//         })
+//     }
+//     else{
+//             res.status(405).json({
+//                 err:"Image not Uploaded"
+//             })
+//         }
+// }))
 
 mongoose.set('strictQuery',true);
 mongoose.connect("mongodb://127.0.0.1:27017/Complaints" ,{useNewUrlParser :true, useUnifiedTopology :true});
@@ -192,10 +198,25 @@ app.get("/complaints", (req,res)=>{
 })
 
 app.post("/complaints", (req,res)=>{
-    const {name, email, mobile, description} = req.body;
-    const departmet = req.body.radio;
-    console.log(name);
-    console.log(departmet);
+    const {name, email, mobile, description,location} = req.body;
+    const department = req.body.radio;
+
+    if(department === "Municipality")
+    {
+        const complaint = new MunicipleComplaints({name,email,mobile,description,department,location});
+        complaint.save();
+    }
+    else if(department === "Power")
+    {
+        const complaint = new PowerComplaints({name,email,mobile,description,department,location});
+        complaint.save();
+    }
+    else
+    {
+        const complaint = new PoliceComplaints({name,email,mobile,description,department,location});
+        complaint.save();
+    }
+
     const Otp = otp.generate(4, { upperCaseAlphabets: false, specialChars: false, lowerCaseAlphabets: false});
     res.render("success");
 })
@@ -247,12 +268,58 @@ app.get("/adminPoliceOld",(req,res)=>{
 app.get("/adminPowerOld",(req,res)=>{
     res.render("adminPowerOld");
 })
-app.get("/adminPowerOld",(req,res)=>{
-    res.render("adminPowerOld");
+app.get("/adminPowerNew",(req,res)=>{
+    res.render("adminPowerNew");
 })
 
 app.get("/success", (req,res)=>{
     res.render("success");
 })
+
+// Upload
+app.get("/upload", (req, res) => {
+  res.render("upload");
+});
+
+const KEYFILEPATH = path.join(__dirname, "cred.json");
+const SCOPES = ["https://www.googleapis.com/auth/drive"];
+
+const auth = new google.auth.GoogleAuth({
+  keyFile: KEYFILEPATH,
+  scopes: SCOPES,
+});
+
+app.post("/upload", upload.any(), async (req, res) => {
+  try {
+    console.log(req.body);
+    console.log(req.files);
+    const { body, files } = req;
+
+    for (let f = 0; f < files.length; f += 1) {
+      await uploadFile(files[f]);
+    }
+
+    res.status(200).send("Form Submitted");
+  } catch (f) {
+    res.send(f.message);
+  }
+});
+
+const uploadFile = async (fileObject) => {
+  const bufferStream = new stream.PassThrough();
+  bufferStream.end(fileObject.buffer);
+  const { data } = await google.drive({ version: "v3", auth }).files.create({
+    media: {
+      mimeType: fileObject.mimeType,
+      body: bufferStream,
+    },
+    requestBody: {
+      name: fileObject.originalname,
+      parents: ["1pHDYngyJ1bRAxsLEXpStQcsGjcRrvj5B"],
+    },
+    fields: "id,name",
+  });
+  console.log(`Uploaded file ${data.name} ${data.id}`);
+};
 
 app.listen(3000, ()=>{console.log("Server is live at port 3000")});
