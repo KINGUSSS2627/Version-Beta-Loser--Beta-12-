@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+body {
+    background-image: url("IMG-20231104-WA0022.jpg");
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+* {
+
+    font-family: 'Poppins', sans-serif;
+}
+
+.info {
+    padding: 30px;
+    width: 800px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.75);
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.heading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    margin-top: 10px;
+}
+
+
+
+.info {
+    font-size: 18px;
+}
+
+
+
+.top-button {
+    position: absolute;
+    top: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    background-color: #144B53;
+    border: none;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    transition: 0.8s ease;
+}
+
+
+.top-button.left {
+    left: 10px;
+}
+
+.top-button.right {
+    right: 10px;
+}
+
+.top-button:hover {
+    background-color: #208291;
+}
+
+.submit {
+    font-size: 16px;
+    font-weight: 700;
+    background-color: #144B53;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    transition: 0.8s ease;
+    margin-left: 10px;
+    color: #fff;
+}
+
+.submit:hover {
+    background-color: #208291;
+}
+
+/* Style for the label associated with the checkbox */
+
+/* Style for the checkbox label when hovered */
+label:hover {
+    cursor: pointer;
+}
+
+textarea:focus {
+    outline: none;
+    border: 1px solid #4070f4;
+    border-bottom-width: 2.5px;
+    border-radius: 6px;
+
+}
+
+textarea {
+    border: 2px solid #ccc;
+    padding: 10px 16px;
+    border-radius: 4px;
+    font-size: 13px;
+    resize: none;
+    transition: all 0.2s ease;
+}
+
+.description {
+    font-weight: bold;
+    margin-bottom: 1px;
+}
+
+.container {
+    padding-left: 20px;
+    margin-left: 20px;
+}
+
+.input-box_radio input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    /* Add spacing between radio button and label */
+}
+
+.input-box_radio label {
+    font-size: 16px;
+}
+
+.input-box_radio p {
+    font-weight: bold;
+}

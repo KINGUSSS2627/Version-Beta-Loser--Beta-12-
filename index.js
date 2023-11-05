@@ -4,12 +4,15 @@ const ejs = require("ejs");
 const dotenv = require('dotenv');
 const bodyParser = require("body-parser");
 const otp = require('otp-generator');
-const fast2sms = require('fast-two-sms')
+const fast2sms = require('fast-two-sms');
 const axios = require('axios');
+const multer = require("./multer");
+const cloudinary = require("./cloudinary");
+const fs = require('fs');
+const upload = require("./multer").upload;
 
 dotenv.config();
 
-const Admin = require("./models/admin")
 const User = require("./models/user");
 const MunicipleComplaints = require("./models/MunicipalComplaints");
 const PowerComplaints = require("./models/PowerComplaints");
@@ -19,6 +22,37 @@ const app = express();
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
+
+app.use('/upload-images', upload.array('image', async(req,res) => {
+    const uploader = async(path)=>await cloudinary.upload(path, 'Images');
+
+    if(req.methode === 'POST')
+    {
+        const urls =[];
+        const files =req.files;
+
+        for(const file of files)
+        {
+            const {path} = file
+
+            const newPath = await uploader(path)
+
+            urls.push(newPath)
+
+            fs.unlinkSync(path)
+        }
+
+        res.status(200).json({
+            message:"Image Uploaded Successfully",
+            data: urls
+        })
+    }
+    else{
+            res.status(405).json({
+                err:"Image not Uploaded"
+            })
+        }
+}))
 
 mongoose.set('strictQuery',true);
 mongoose.connect("mongodb://127.0.0.1:27017/Complaints" ,{useNewUrlParser :true, useUnifiedTopology :true});
@@ -67,18 +101,67 @@ app.get("/logout", (req,res)=>{
 
 app.post("/login", (req, res) => {
     const { email, password } = req.body;
-    User.findOne({ email: email })
-        .then(result => {
-            if (result && result.password === password) {
-                res.render("home");
-            } else {
-                res.redirect("/login");
-            }
-        })
-        .catch(err => {
-            console.log(err);
-            res.status(500).send("Internal Server Error");
-        });
+
+    if(email === "municipal@work")
+    {
+         User.findOne({ email: email })
+            .then(result => {
+                if (result && result.password === password) {
+                    res.render("adminMunicipalNew");
+                } else {
+                    res.redirect("/login");
+                }
+            })
+            .catch(err => {
+                console.log(err);
+                res.status(500).send("Internal Server Error");
+            });
+    }
+    else if(email === "power@work")
+    {
+         User.findOne({ email: email })
+            .then(result => {
+                if (result && result.password === password) {
+                    res.render("adminPoliceNew");
+                } else {
+                    res.redirect("/login");
+                }
+            })
+            .catch(err => {
+                console.log(err);
+                res.status(500).send("Internal Server Error");
+            });
+    }
+    else if(email === "police@work")
+    {
+        User.findOne({ email: email })
+            .then(result => {
+                if (result && result.password === password) {
+                    res.render("adminPowerNew");
+                } else {
+                    res.redirect("/login");
+                }
+            })
+            .catch(err => {
+                console.log(err);
+                res.status(500).send("Internal Server Error");
+            });
+    }
+    else
+    {
+        User.findOne({ email: email })
+            .then(result => {
+                if (result && result.password === password) {
+                    res.render("home");
+                } else {
+                    res.redirect("/login");
+                }
+            })
+            .catch(err => {
+                console.log(err);
+                res.status(500).send("Internal Server Error");
+            });
+    }
 });
 
 app.get("/signup", (req,res)=>{
@@ -129,7 +212,6 @@ app.get("/detailPolice",(req,res)=>{
 app.get("/detailPower",(req,res)=>{
     res.render("detailPower");
 })
-
 
 app.get("/prevComplaints", (req,res)=>{
     res.render("prevComplaints");
