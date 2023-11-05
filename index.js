@@ -229,7 +229,14 @@ app.get("/detailUser",(req,res)=>{
     res.render("detailUser");
 })
 app.get("/detailMunicipal",(req,res)=>{
-    res.render("detailMunicipal");
+    MunicipleComplaints.find({name: "niket"})
+        .then((result)=>{
+            console.log(result);
+            res.render("detailMunicipal" ,{item: result});
+        })
+        .catch((error) => {
+        console.error("Error:", error);
+        })
 })
 app.get("/detailPolice",(req,res)=>{
     res.render("detailPolice");
@@ -251,25 +258,67 @@ app.get("/acknowledgementPolice",(req,res)=>{
 })
 
 app.get("/acknowledgementMunicipal",(req,res)=>{
-    res.render("acknowledgementMunicipal");
+            // console.log(result);
+            res.render("acknowledgementMunicipal")
 })
 app.get("/adminMunicipalNew",(req,res)=>{
-    res.render("adminMunicipalNew");
+    MunicipleComplaints.find({})
+        .then((result)=>{
+            res.render("adminMunicipalNew" ,{list: result});
+        })
+        .catch((error) => {
+        console.error("Error:", error);
+    });
 })
 app.get("/adminMunicipalOld",(req,res)=>{
-    res.render("adminMunicipalOld");
+    MunicipleComplaints.find({})
+        .then((result)=>{
+            console.log(result);
+            res.render("adminMunicipalNew" ,{list: result});
+        })
+        .catch((error) => {
+        console.error("Error:", error);
+        })
 })
 app.get("/adminPoliceNew",(req,res)=>{
-    res.render("adminPoliceNew");
+    PoliceComplaints.find({})
+        .then((result)=>{
+            console.log(result);
+            res.render("adminPoliceNew" ,{list: result});
+        })
+        .catch((error) => {
+        console.error("Error:", error);
+        })
 })
 app.get("/adminPoliceOld",(req,res)=>{
-    res.render("adminPoliceOld");
+    PoliceComplaints.find({})
+        .then((result)=>{
+            res.render("adminPoliceNew" ,{list: result});
+            console.log(result);
+        })
+        .catch((error) => {
+        console.error("Error:", error);
+        })
 })
 app.get("/adminPowerOld",(req,res)=>{
-    res.render("adminPowerOld");
+    PowerComplaints.find({})
+        .then((result)=>{
+            console.log(result);
+            res.render("adminPowerOld" ,{list: result});
+        })
+        .catch((error) => {
+        console.error("Error:", error);
+        })
 })
 app.get("/adminPowerNew",(req,res)=>{
-    res.render("adminPowerNew");
+    PowerComplaints.find({})
+        .then((result)=>{
+            console.log(result);
+            res.render("adminPowerNew" ,{list: result});
+        })
+        .catch((error) => {
+        console.error("Error:", error);
+        })
 })
 
 app.get("/success", (req,res)=>{
